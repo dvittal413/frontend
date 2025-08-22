@@ -18,7 +18,7 @@ const AdminLogin = () => {
     setError("")
 
     try {
-      const res = await axios.post(`${apiUrl}/api/admin/login`, { username, password })
+      const res = await axios.post(`https://dvshortylinks.com/api/admin/login`, { username, password })
       localStorage.setItem("adminToken", res.data.token)
       localStorage.setItem("adminData", JSON.stringify(res.data.admin))
       window.location.href = "/admindashboard"
@@ -35,7 +35,7 @@ const AdminLogin = () => {
     setError("")
 
     try {
-      const res = await axios.post(`${apiUrl}/api/admin/register`, { username, email, password })
+      const res = await axios.post(`https://dvshortylinks.com/api/admin/register`, { username, email, password })
       localStorage.setItem("adminToken", res.data.token)
       localStorage.setItem("adminData", JSON.stringify(res.data.admin))
       window.location.href = "/admindashboard"
