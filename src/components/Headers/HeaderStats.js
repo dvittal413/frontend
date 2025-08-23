@@ -131,15 +131,15 @@ export default function HeaderStats() {
                   <i className="fab fa-telegram fs-5"></i>
                   Telegram
                 </a>
-                <a
-                  href="https://wa.me/yourphonenumber"
+               <a
+                  href="https://t.me/DvShortyLinks_Help"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-whatsapp text-center py-2 px-3 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2"
+                  className="btn btn-telegram text-center py-2 px-3 rounded-pill fw-bold d-flex align-items-center justify-content-center gap-2"
                   style={{ width: '200px' }}
                 >
-                  <i className="fab fa-whatsapp fs-5"></i>
-                  WhatsApp
+                  <i className="fab fa-telegram fs-5"></i>
+                  Telegram
                 </a>
               </div>
             </div>
