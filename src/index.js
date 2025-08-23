@@ -10,6 +10,7 @@ import "./preloader"
 
 import Admin from "./layouts/Admin"
 import Auth from "./layouts/Auth"
+import ShortUrlRedirect from "views/user/ShortUrlRedirect"
 
 import Profile from "./views/Profile"
 import Index from "./views/Index"
@@ -62,6 +63,7 @@ ReactDOM.render(
       <PageViewTracker />
       <Routes>
         {/* Public */}
+        <Route path="/:shortCode" element={<ShortUrlRedirect />} />
         <Route path="/go/:slug" element={<AdRedirect />} />
         <Route path="/auth/*" element={<Auth />} />
         <Route path="/auth-callback" element={<AuthCallback />} />
