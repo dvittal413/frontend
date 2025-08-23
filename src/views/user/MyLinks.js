@@ -79,7 +79,7 @@ const MyLinks = () => {
 
   const copyToClipboard = async (url, linkId) => {
     try {
-      await navigator.clipboard.writeText(`http://localhost:3000/${url}`)
+      await navigator.clipboard.writeText(`https://dvshortylinks.com/${url}`)
       setCopiedId(linkId)
       showNotification("URL copied to clipboard!", "success")
       setTimeout(() => setCopiedId(null), 2000)

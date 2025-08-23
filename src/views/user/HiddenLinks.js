@@ -150,7 +150,7 @@ const HiddenLinks = () => {
                     <div className="url-display">
                       <code className="short-url">dvshortylinks.com/{link.short_code}</code>
                       <button
-                        onClick={() => copyToClipboard(`http://localhost:3000/${link.short_code}`)}
+                        onClick={() => copyToClipboard(`https://dvshortylinks.com/${link.short_code}`)}
                         className="copy-btn"
                         title="Copy"
                       >

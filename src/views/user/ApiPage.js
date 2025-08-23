@@ -53,9 +53,9 @@ const ApiPage = () => {
   }
 
   const apiExamples = {
-    curl: `curl -X GET "http://localhost:3000/api?api=${apiToken}&url=https://example.com&alias=mylink&format=json"`,
+    curl: `curl -X GET "https://dvshortylinks.com/api?api=${apiToken}&url=https://example.com&alias=mylink&format=json"`,
     javascript: `// Using fetch API
-const response = await fetch('http://localhost:3000/api', {
+const response = await fetch('https://dvshortylinks.com/api', {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const params = new URLSearchParams({
   format: 'json' // or 'text'
 });
 
-const apiUrl = \`http://localhost:3000/api?\${params}\`;
+const apiUrl = \`https://dvshortylinks.com/api?\${params}\`;
 const response = await fetch(apiUrl);
 const data = await response.json();`,
     php: `<?php
@@ -78,7 +78,7 @@ $api_token = '${apiToken}';
 $url = 'https://example.com';
 $alias = 'mylink'; // optional
 
-$api_url = 'http://localhost:3000/api?' . http_build_query([
+$api_url = 'https://dvshortylinks.com/api?' . http_build_query([
     'api' => $api_token,
     'url' => $url,
     'alias' => $alias,
@@ -107,7 +107,7 @@ params = {
     'format': 'json'
 }
 
-response = requests.get('http://localhost:3000/api', params=params)
+response = requests.get('https://dvshortylinks.com/api', params=params)
 data = response.json()
 
 if data['status'] == 'success':
@@ -185,7 +185,7 @@ else:
           </div>
           <div className="card-content">
             <div className="endpoint-display">
-              <code>GET http://localhost:3000/api</code>
+              <code>GET https://dvshortylinks.com/api</code>
             </div>
             <div className="parameters-section">
               <h4 className="parameters-title">Parameters:</h4>
@@ -245,7 +245,7 @@ else:
                 <div className="code-block">
                   <pre>{`{
   "status": "success",
-  "shortenedUrl": "http://localhost:3000/abc123"
+  "shortenedUrl": "https://dvshortylinks.com/abc123"
 }`}</pre>
                 </div>
               )}
@@ -338,12 +338,12 @@ else:
               <p className="test-description">Try this URL in your browser:</p>
               <div className="test-url-display">
                 <code className="test-url">
-                  http://localhost:3000/api?api={apiToken}&url=https://google.com&format=json
+                  https://dvshortylinks.com/api?api={apiToken}&url=https://google.com&format=json
                 </code>
                 <button
                   onClick={() =>
                     copyToClipboard(
-                      `http://localhost:3000/api?api=${apiToken}&url=https://google.com&format=json`,
+                      `https://dvshortylinks.com/api?api=${apiToken}&url=https://google.com&format=json`,
                       "Test URL",
                     )
                   }
