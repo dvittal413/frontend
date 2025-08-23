@@ -1,21 +1,22 @@
+import React from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useEffect } from "react"
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "assets/styles/tailwind.css"
 import ProtectedRoute from "./contexts/ProtectedRoute"
-import Layout from "views/admins/Layout"             // ✅ keep this
-// import AdminSidebar from "views/admins/AdminSidebar"  // ❌ remove this
+import Layout from "views/admins/Layout"
+import "./preloader"
 
-// layouts
 import Admin from "./layouts/Admin"
 import Auth from "./layouts/Auth"
 
-// views without layouts
 import Profile from "./views/Profile"
 import Index from "./views/Index"
 import AuthCallback from "./contexts/AuthCallback"
 import NotFound from "views/user/NotFound"
 import AdRedirect from "views/user/AdRedirect"
+import { trackPageview } from "./analytics"
 
 // admins
 import AdminLogin from "views/admins/AdminLogin"
@@ -39,27 +40,35 @@ const AdminProtectedRoute = ({ children }) => {
   return children
 }
 
-// ---------- Reusable Admin Route wrapper ----------
-// Uses the SINGLE Layout (includes sidebar + responsive margins)
-// Pass the correct currentPage to highlight the nav item.
+// ---------- Single admin layout wrapper ----------
 const AdminRoute = ({ page, children }) => (
   <AdminProtectedRoute>
     <Layout currentPage={page}>{children}</Layout>
   </AdminProtectedRoute>
 )
 
+// ---------- Pageview tracker (hooks INSIDE a component) ----------
+const PageViewTracker = () => {
+  const location = useLocation()
+  useEffect(() => {
+    trackPageview(location.pathname + location.search)
+  }, [location.pathname, location.search])
+  return null
+}
+
 ReactDOM.render(
   <AuthProvider>
     <BrowserRouter>
+      <PageViewTracker />
       <Routes>
-        {/* Public Routes */}
+        {/* Public */}
         <Route path="/go/:slug" element={<AdRedirect />} />
         <Route path="/auth/*" element={<Auth />} />
         <Route path="/auth-callback" element={<AuthCallback />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<Index />} />
 
-        {/* Regular User Protected Routes */}
+        {/* Regular User Protected */}
         <Route
           path="/admin/*"
           element={
@@ -72,7 +81,7 @@ ReactDOM.render(
         {/* Admin Auth (no layout) */}
         <Route path="/adminlogin" element={<AdminLogin />} />
 
-        {/* Admin Console (ALL use single Layout) */}
+        {/* Admin Console (single Layout) */}
         <Route
           path="/admindashboard"
           element={
