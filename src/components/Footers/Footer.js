@@ -153,24 +153,24 @@ export default function Footer() {
           <div className="flex flex-wrap items-center md:justify-between justify-center">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Copyright © {new Date().getFullYear()} Notus React by{" "}
+                Copyright © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.creative-tim.com/"
+                href="https://www.Dvshortenlinks.com/"
                   target="_blank"
                   className="text-blueGray-500 hover:text-blueGray-800"
                 >
-                  Creative Tim
+                  DVShortenLinks
                 </a>
                 .
               </div>
               <div className="text-sm text-blueGray-500 font-semibold py-1">
                 Distributed by{" "}
-                <a
-                  href="https://themewagon.com/"
+                 <a
+                href="https://www.zorvixetechnologies.com/"
                   className="text-blueGray-500 hover:text-blueGray-800"
                   target="_blank"
                 >
-                  ThemeWagon
+                  Zorvixe Technologies
                 </a>
                 .
               </div>
